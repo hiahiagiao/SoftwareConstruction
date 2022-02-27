@@ -1,0 +1,10 @@
+E:\test\homework1\WindowsFormCalculator\bin\Debug\WindowsFormCalculator.exe.config
+E:\test\homework1\WindowsFormCalculator\bin\Debug\WindowsFormCalculator.exe
+E:\test\homework1\WindowsFormCalculator\bin\Debug\WindowsFormCalculator.pdb
+E:\test\homework1\WindowsFormCalculator\obj\Debug\WindowsFormCalculator.csproj.AssemblyReference.cache
+E:\test\homework1\WindowsFormCalculator\obj\Debug\WindowsFormCalculator.Form1.resources
+E:\test\homework1\WindowsFormCalculator\obj\Debug\WindowsFormCalculator.Properties.Resources.resources
+E:\test\homework1\WindowsFormCalculator\obj\Debug\WindowsFormCalculator.csproj.GenerateResource.cache
+E:\test\homework1\WindowsFormCalculator\obj\Debug\WindowsFormCalculator.csproj.CoreCompileInputs.cache
+E:\test\homework1\WindowsFormCalculator\obj\Debug\WindowsFormCalculator.exe
+E:\test\homework1\WindowsFormCalculator\obj\Debug\WindowsFormCalculator.pdb
