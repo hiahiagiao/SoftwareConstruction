@@ -204,7 +204,7 @@ namespace OrderControl
             }
         }
     }
-    class OrderService
+    public class OrderService
     {
         public List<Order> orders = new List<Order>();
         public void export()
