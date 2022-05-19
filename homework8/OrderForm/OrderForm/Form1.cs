@@ -67,7 +67,7 @@ namespace OrderForm
 
         private void btn_query_Click(object sender, EventArgs e)
         {
-
+        
         }
     }
 }
