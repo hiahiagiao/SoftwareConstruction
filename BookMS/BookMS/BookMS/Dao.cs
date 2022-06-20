@@ -1,38 +1,42 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+
 
 namespace BookMS
 {
-    //对数据库进行操作与链接
-    class Dao
+    class DAO
     {
-        public SqlConnection connect()
+        MySqlConnection connection;
+        public MySqlConnection connect()
         {
-            string str = @"Data Source=";
-            SqlConnection sc = new SqlConnection(str);
-            sc.Open();
-            return sc;
+            string str = "datasource=localhost;username=root;" + "password=123456;database=bookms;charset=utf8";
+            connection = new MySqlConnection(str);
+            connection.Open();
+            return connection;
         }
 
-        public SqlCommand command(string sql)
+        public MySqlCommand command(string sql)
         {
-            SqlCommand cmd = new SqlCommand(sql, connect());
+            MySqlCommand cmd = new MySqlCommand(sql, connect());
             return cmd;
         }
 
-        public int Execute(string sql)
+        public int execute(string sql)
         {
             return command(sql).ExecuteNonQuery();
         }
 
-        public SqlDataReader read(string sql)
+        public MySqlDataReader read(string sql)
         {
             return command(sql).ExecuteReader();
         }
-
+        public void daoClose()
+        {
+            connection.Close();
+        }
     }
 }
