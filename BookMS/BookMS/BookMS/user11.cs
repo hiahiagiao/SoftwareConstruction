@@ -34,10 +34,10 @@ namespace BookMS
         private void button1_Click(object sender, EventArgs e)
         {
             string isbn = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            DialogResult dr = MessageBox.Show("确认申请借书", "信息提示", MessageBoxButtons.OKCancel);
-            if (dr == DialogResult.OK)
-            {
-                string sql = $"INSERT INTO request (`id`, `isbn`, `rdate`) VALUES ('{uid}', '{isbn}', '{DateTime.Now.ToString()}')";
+           // DialogResult dr = MessageBox.Show("确认申请借书", "信息提示", MessageBoxButtons.OKCancel);
+            //if (dr == DialogResult.OK)
+            //{
+                string sql = $"INSERT INTO `bookms`.`record` (`userid`, `bookisbn`, `state`) VALUES ('{uid}', '{isbn}', '待批准');";
                 DAO dao = new DAO();
                 if (dao.execute(sql) > 0)
                 {
@@ -49,7 +49,7 @@ namespace BookMS
                     MessageBox.Show("借书申请失败");
                 }
                 dao.daoClose();
-            }
+            //}
         }
 
         private void button5_Click(object sender, EventArgs e)

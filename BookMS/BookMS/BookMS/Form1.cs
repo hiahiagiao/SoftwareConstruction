@@ -47,7 +47,7 @@ namespace BookMS
                 if (dc.Read())
                 {
                     //MessageBox.Show(dc[0].ToString(), dc["name"].ToString());
-                    MessageBox.Show("登录成功");
+                    //MessageBox.Show("登录成功");
                    
                     return true;
                 }
@@ -67,7 +67,7 @@ namespace BookMS
                 if (dc.Read())
                 {
                     //MessageBox.Show(dc[0].ToString(), dc["name"].ToString());
-                    MessageBox.Show("登录成功");
+                   // MessageBox.Show("登录成功");
                     return true;
                 }
                 else

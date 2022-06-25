@@ -22,15 +22,15 @@ namespace BookMS
         private void 书籍查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             user11 u11 = new user11(uid);
-            u11.ShowDialog();
-            this.Hide();
+            u11.Show();
+            
         }
 
         private void 借书管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             user12 u12 = new user12(uid);
-            u12.ShowDialog();
-            this.Hide();
+            u12.Show();
+            
         }
     }
 }

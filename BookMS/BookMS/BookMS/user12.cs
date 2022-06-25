@@ -25,7 +25,7 @@ namespace BookMS
         {
             dataGridView1.Rows.Clear();
             DAO dao = new DAO();
-            string sql = $"SELECT book.isbn, name, author,press, rdate FROM request, book where book.isbn=request.isbn and request.id='{uid}'";
+            string sql = $"SELECT book.isbn, book.name, author,press, state FROM record, book where book.isbn=record.bookisbn and record.userid='{uid}'";
             IDataReader dc = dao.read(sql);
             while (dc.Read())
             {
@@ -40,7 +40,7 @@ namespace BookMS
             DialogResult dr = MessageBox.Show("确认撤销申请", "信息提示", MessageBoxButtons.OKCancel);
             if (dr == DialogResult.OK)
             {
-                string sql = $"delete from request where isbn='{isbn}' and id='{uid}'";
+                string sql = $"delete from record where bookisbn='{isbn}' and userid='{uid}'";
                 DAO dao = new DAO();
                 if (dao.execute(sql) > 0)
                 {

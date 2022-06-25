@@ -22,7 +22,8 @@ namespace BookMS
         {
             dataGridView1.Rows.Clear();
             DAO dao = new DAO();
-            string sql = $"select request.id, user.name, rdate,book.isbn,book.name,book.number from book, request, user where user.id=request.id and request.isbn=book.isbn";
+            string sql = $"select record.userid, user.name, state,book.isbn,book.name,book.number" +
+                $" from book, record, user where user.id=record.userid and record.bookisbn=book.isbn";
             IDataReader dc = dao.read(sql);
             while (dc.Read())
             {
@@ -33,7 +34,38 @@ namespace BookMS
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            string userid = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string isbn= dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            DAO dao = new DAO();
+            string sql = $"UPDATE `bookms`.`record` SET `state` = '出借中' " +
+                $"WHERE (`userid` = '{userid}') and (`bookisbn` = '{isbn}');";
+            dao.execute(sql);
+            dao.daoClose();
+            init();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string userid = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string isbn = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            DAO dao = new DAO();
+            string sql = $"UPDATE `bookms`.`record` SET `state` = '已被拒' " +
+                $"WHERE (`userid` = '{userid}') and (`bookisbn` = '{isbn}');";
+            dao.execute(sql);
+            dao.daoClose();
+            init();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string userid = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string isbn = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            DAO dao = new DAO();
+            string sql = $"UPDATE `bookms`.`record` SET `state` = '已还书' " +
+                $"WHERE (`userid` = '{userid}') and (`bookisbn` = '{isbn}');";
+            dao.execute(sql);
+            dao.daoClose();
+            init();
         }
 
         

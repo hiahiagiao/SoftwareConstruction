@@ -38,6 +38,7 @@ namespace BookMS
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,27 +61,29 @@ namespace BookMS
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(592, 448);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(629, 116);
+            this.button1.Location = new System.Drawing.Point(629, 57);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 48);
             this.button1.TabIndex = 1;
-            this.button1.Text = "同意申请";
+            this.button1.Text = "同意借书";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(629, 232);
+            this.button2.Location = new System.Drawing.Point(629, 150);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(116, 47);
             this.button2.TabIndex = 2;
-            this.button2.Text = "拒绝申请";
+            this.button2.Text = "拒绝借书";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Column1
             // 
@@ -96,7 +99,7 @@ namespace BookMS
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "申请时间";
+            this.Column2.HeaderText = "申请状态";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
@@ -118,11 +121,22 @@ namespace BookMS
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(629, 238);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(116, 48);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "同意还书";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // admin3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
@@ -144,5 +158,6 @@ namespace BookMS
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button button4;
     }
 }
