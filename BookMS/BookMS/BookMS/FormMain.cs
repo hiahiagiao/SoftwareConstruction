@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -23,13 +23,13 @@ namespace BookMS
             {
                 if (radioButtonAdmin.Checked == true)
                 {
-                    admin1 a = new admin1();
+                    FormAdminMain a = new FormAdminMain();
                     this.Hide();
                     a.ShowDialog();
                 }
                 else
                 {
-                    user1 u = new user1(ID_textBox.Text);
+                    FormUserMain u = new FormUserMain(ID_textBox.Text);
                     this.Hide();
                     u.ShowDialog();
                 }

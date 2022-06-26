@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class user12 : Form
+    public partial class FormUserBorrow : Form
     {
         string uid;
-        public user12(string uid)
+        public FormUserBorrow(string uid)
         {
             InitializeComponent();
             this.uid = uid;
@@ -27,9 +27,16 @@ namespace BookMS
             DAO dao = new DAO();
             string sql = $"SELECT book.isbn, book.name, author,press, state FROM record, book where book.isbn=record.bookisbn and record.userid='{uid}'";
             IDataReader dc = dao.read(sql);
+            int i = 0;
             while (dc.Read())
             {
                 dataGridView1.Rows.Add(dc[0].ToString(), dc[1].ToString(), dc[2].ToString(), dc[3].ToString(), dc[4].ToString());
+                if (dc[4].ToString() == "逾期")
+                {
+                    dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.Red;
+                }
+                i++;
+            
             }
             dc.Close();
             dao.daoClose();
@@ -54,6 +61,25 @@ namespace BookMS
                 dao.daoClose();
                 init();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string isbn = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            DialogResult dr = MessageBox.Show("确认还书", "信息提示", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.OK)
+            {
+                string sql = $"UPDATE `bookms`.`record` SET `state` = '还书' WHERE (`userid` = '{uid}') and (`bookisbn` = '{isbn}');";
+                DAO dao = new DAO();
+                dao.execute(sql);
+                dao.daoClose();
+                init();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

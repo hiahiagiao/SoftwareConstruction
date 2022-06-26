@@ -1,7 +1,7 @@
 ﻿
 namespace BookMS
 {
-    partial class admin2
+    partial class FormAdminManage
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,8 @@ namespace BookMS
             this.button6 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,14 +61,14 @@ namespace BookMS
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(589, 447);
+            this.dataGridView1.Size = new System.Drawing.Size(571, 427);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -173,11 +175,30 @@ namespace BookMS
             this.textBox2.Size = new System.Drawing.Size(160, 25);
             this.textBox2.TabIndex = 8;
             // 
-            // admin2
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(616, 391);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(160, 25);
+            this.textBox3.TabIndex = 10;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(809, 379);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(124, 45);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "排序";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // FormAdminManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 451);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button6);
@@ -187,7 +208,7 @@ namespace BookMS
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "admin2";
+            this.Name = "FormAdminManage";
             this.Text = "图书管理页面";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -211,5 +232,7 @@ namespace BookMS
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button7;
     }
 }

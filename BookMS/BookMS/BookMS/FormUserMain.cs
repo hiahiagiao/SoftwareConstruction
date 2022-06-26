@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class user1 : Form
+    public partial class FormUserMain : Form
     {
         string uid;
-        public user1(string uid)
+        public FormUserMain(string uid)
         {
             InitializeComponent();
             this.uid = uid;
@@ -21,14 +21,14 @@ namespace BookMS
 
         private void 书籍查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            user11 u11 = new user11(uid);
+            FormUserQuery u11 = new FormUserQuery(uid);
             u11.Show();
             
         }
 
         private void 借书管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            user12 u12 = new user12(uid);
+            FormUserBorrow u12 = new FormUserBorrow(uid);
             u12.Show();
             
         }

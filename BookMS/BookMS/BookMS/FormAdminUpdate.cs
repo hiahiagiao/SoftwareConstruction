@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class admin22 : Form
+    public partial class FormAdminUpdate : Form
     {
         string isbn;
-        public admin22(string name,string isbn,string press,string author,string number )
+        public FormAdminUpdate(string name,string isbn,string press,string author,string number )
         {
             InitializeComponent();
             textBox1.Text = name;

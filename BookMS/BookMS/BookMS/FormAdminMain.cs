@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class admin1 : Form
+    public partial class FormAdminMain : Form
     {
-        public admin1()
+        public FormAdminMain()
         {
             InitializeComponent();
         }
@@ -25,14 +25,14 @@ namespace BookMS
 
         private void 图书管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            admin2 a2 = new admin2();
+            FormAdminManage a2 = new FormAdminManage();
             
             a2.ShowDialog();
         }
 
         private void 借书申请ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            admin3 a3 = new admin3();
+            FormAdminLend a3 = new FormAdminLend();
            
             a3.Show();
         }

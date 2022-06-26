@@ -1,7 +1,7 @@
 ﻿
 namespace BookMS
 {
-    partial class admin21
+    partial class FormAdminAdd
     {
         /// <summary>
         /// Required designer variable.

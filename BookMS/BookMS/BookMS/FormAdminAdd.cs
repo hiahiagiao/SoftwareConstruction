@@ -10,17 +10,14 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class admin21 : Form
+    public partial class FormAdminAdd : Form
     {
-        public admin21()
+        public FormAdminAdd()
         {
             InitializeComponent();
         }
 
-        public void Close()
-        {
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {

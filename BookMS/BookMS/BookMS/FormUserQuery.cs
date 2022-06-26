@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class user11 : Form
+    public partial class FormUserQuery : Form
     {
         string uid;
-        public user11(string uid)
+        public FormUserQuery(string uid)
         {
             InitializeComponent();
             this.uid = uid;
@@ -37,7 +37,7 @@ namespace BookMS
            // DialogResult dr = MessageBox.Show("确认申请借书", "信息提示", MessageBoxButtons.OKCancel);
             //if (dr == DialogResult.OK)
             //{
-                string sql = $"INSERT INTO `bookms`.`record` (`userid`, `bookisbn`, `state`) VALUES ('{uid}', '{isbn}', '待批准');";
+                string sql = $"INSERT INTO `bookms`.`record` (`userid`, `bookisbn`, `state`) VALUES ('{uid}', '{isbn}', '申请');";
                 DAO dao = new DAO();
                 if (dao.execute(sql) > 0)
                 {

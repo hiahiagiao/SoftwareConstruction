@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class admin2 : Form
+    public partial class FormAdminManage : Form
     {
-        public admin2()
+        public FormAdminManage()
         {
             InitializeComponent();
             init();
@@ -49,7 +49,7 @@ namespace BookMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            admin21 a21 = new admin21();
+            FormAdminAdd a21 = new FormAdminAdd();
             a21.ShowDialog();
             if (a21.DialogResult == DialogResult.OK)
             {
@@ -80,7 +80,7 @@ namespace BookMS
                     MessageBox.Show("删除失败");
                 }
             }
-        }
+        } 
 
         private void button2_Click(object sender, EventArgs e)
 
@@ -90,7 +90,7 @@ namespace BookMS
             string press = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             string author = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             string number = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            admin22 a22 = new admin22(name,isbn,press,author,number);
+            FormAdminUpdate a22 = new FormAdminUpdate(name,isbn,press,author,number);
             a22.ShowDialog();
             if (a22.DialogResult == DialogResult.OK)
             {
@@ -113,6 +113,21 @@ namespace BookMS
             dc.Close();
             dao.daoClose();
             textBox2.Text = "";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string condition = textBox3.Text;
+            string sql=$"SELECT* FROM bookms.book order by {condition}";
+            dataGridView1.Rows.Clear();
+            DAO dao = new DAO();
+            IDataReader dc = dao.read(sql);
+            while (dc.Read())
+            {
+                dataGridView1.Rows.Add(dc[0].ToString(), dc[1].ToString(), dc[2].ToString(), dc[3].ToString(), dc[4].ToString());
+            }
+            dc.Close();
+            dao.daoClose();
         }
     }
 }

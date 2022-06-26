@@ -1,7 +1,7 @@
 ﻿
 namespace BookMS
 {
-    partial class admin22
+    partial class FormAdminUpdate
     {
         /// <summary>
         /// Required designer variable.

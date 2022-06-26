@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BookMS
 {
-    public partial class admin3 : Form
+    public partial class FormAdminLend : Form
     {
-        public admin3()
+        public FormAdminLend()
         {
             InitializeComponent();
             init();
@@ -37,9 +37,10 @@ namespace BookMS
             string userid = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             string isbn= dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             DAO dao = new DAO();
-            string sql = $"UPDATE `bookms`.`record` SET `state` = '出借中' " +
+            string sql = $"UPDATE `bookms`.`record` SET `state` = '出借' " +
                 $"WHERE (`userid` = '{userid}') and (`bookisbn` = '{isbn}');";
             dao.execute(sql);
+            string sql2 = $"UPDATE `bookms`.`book` SET `number` = 'number'-1 WHERE `isbn` = '{isbn}';";
             dao.daoClose();
             init();
         }
@@ -49,7 +50,7 @@ namespace BookMS
             string userid = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             string isbn = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             DAO dao = new DAO();
-            string sql = $"UPDATE `bookms`.`record` SET `state` = '已被拒' " +
+            string sql = $"UPDATE `bookms`.`record` SET `state` = '被拒' " +
                 $"WHERE (`userid` = '{userid}') and (`bookisbn` = '{isbn}');";
             dao.execute(sql);
             dao.daoClose();
@@ -61,7 +62,7 @@ namespace BookMS
             string userid = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             string isbn = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             DAO dao = new DAO();
-            string sql = $"UPDATE `bookms`.`record` SET `state` = '已还书' " +
+            string sql = $"UPDATE `bookms`.`record` SET `state` = '入库' " +
                 $"WHERE (`userid` = '{userid}') and (`bookisbn` = '{isbn}');";
             dao.execute(sql);
             dao.daoClose();
